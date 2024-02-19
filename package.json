@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": "Samuel Kopp (https://samuelkopp.de)",
   "license": "MIT",
-  "description": "A JavaScript SDK for mailchannels.",
+  "description": "A JavaScript library for sending emails via mailchannels for Cloudflare Workers.",
   "funding": "https://github.com/sponsors/boywithkeyboard",
   "repository": "github:boywithkeyboard/mailchannels",
   "main": "./build/main.cjs",
