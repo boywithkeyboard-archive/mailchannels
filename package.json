@@ -1,6 +1,6 @@
 {
   "name": "mailchannels",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Samuel Kopp (https://samuelkopp.de)",
   "license": "MIT",
   "description": "A JavaScript library for sending emails via mailchannels for Cloudflare Workers.",
