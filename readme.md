@@ -25,8 +25,12 @@ import { sendMail } from 'mailchannels'
 
 ```ts
 const response = await sendMail({
-  sender: 'You',
-  message: '123456 is your verification code.',
-  to: 4566118311 // +45 66118311
+  subject: '...',
+  message: '...',
+  from: {
+    name: '...',
+    email: '...'
+  },
+  to: 'john.doe@example.com'
 })
 ```
