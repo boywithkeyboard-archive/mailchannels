@@ -1,11 +1,18 @@
 {
   "name": "mailchannels",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "author": "Samuel Kopp (https://samuelkopp.de)",
   "license": "MIT",
   "description": "JavaScript SDK for mailchannels",
   "funding": "https://github.com/sponsors/boywithkeyboard",
   "repository": "boywithkeyboard/mailchannels",
+  "keywords": [
+    "mailchannels",
+    "email",
+    "cloudflare-workers",
+    "cloudflare",
+    "sdk"
+  ],
   "scripts": {
     "build": "builder index.ts:index.js"
   },
