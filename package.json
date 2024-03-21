@@ -3,39 +3,14 @@
   "version": "1.0.1",
   "author": "Samuel Kopp (https://samuelkopp.de)",
   "license": "MIT",
-  "description": "A JavaScript library for sending emails via mailchannels for Cloudflare Workers.",
+  "description": "JavaScript SDK for mailchannels",
   "funding": "https://github.com/sponsors/boywithkeyboard",
-  "repository": "github:boywithkeyboard/mailchannels",
-  "main": "./build/main.cjs",
-  "module": "./build/main.mjs",
-  "types": "./build/main.d.ts",
-  "files": [
-    "./build"
-  ],
-  "exports": {
-    ".": {
-      "import": {
-        "default": "./build/main.mjs",
-        "types": "./build/main.d.ts"
-      },
-      "require": {
-        "default": "./build/main.cjs",
-        "types": "./build/main.d.ts"
-      }
-    }
-  },
+  "repository": "boywithkeyboard/mailchannels",
   "scripts": {
-    "build:cjs": "esbuild main.ts --bundle --minify --platform=node --format=cjs --target=es2022 --outfile=build/main.cjs",
-    "build:esm": "esbuild main.ts --bundle --minify --platform=node --format=esm --target=es2022 --outfile=build/main.mjs",
-    "build": "tsc && npm run build:cjs && npm run build:esm",
-    "prepublishOnly": "npm run build"
+    "build": "builder index.ts:index.js"
   },
   "devDependencies": {
-    "@types/node": "^20.11.24",
-    "esbuild": "^0.20.1",
-    "typescript": "^5.3.3"
-  },
-  "engines": {
-    "node": ">=20"
+    "@boywithkeyboard/builder": "^0.12.0",
+    "typescript": "^5.4.3"
   }
 }
