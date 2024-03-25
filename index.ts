@@ -4,10 +4,19 @@ type MailContact =
   | string
   | string[]
 
+type Result =
+  | {
+    success: true
+  }
+  | {
+    success: false
+    errors: string[]
+  }
+
 /**
  * Send an email via [mailchannels](https://blog.cloudflare.com/sending-email-from-workers-with-mailchannels) on Cloudflare Workers.
  */
-export function sendMail(
+export async function sendMail(
   options: {
     subject: string
     message: string
@@ -25,7 +34,7 @@ export function sendMail(
       selector?: string
     }
   }
-) {
+): Promise<Result> {
   // to
   const to: { name?: string; email: string }[] = []
 
@@ -67,7 +76,7 @@ export function sendMail(
     bcc.push(options.bcc)
   }
 
-  return fetch('https://api.mailchannels.net/tx/v1/send', {
+  const res = await fetch('https://api.mailchannels.net/tx/v1/send', {
     method: 'POST',
     headers: {
       'content-type': 'application/json'
@@ -90,4 +99,19 @@ export function sendMail(
       ...(options.reply && { reply_to: to[0] })
     })
   })
+
+  if (res.ok) {
+    await res.body?.cancel()
+
+    return {
+      success: true
+    }
+  }
+
+  const json = await res.json()
+
+  return {
+    success: false,
+    errors: json.errors
+  }
 }
