@@ -5,14 +5,6 @@
 
 ### Setup
 
-#### Deno
-
-```ts
-import { sendMail } from 'https://esm.sh/mailchannels'
-```
-
-#### Node.js
-
 ```bash
 npm i mailchannels
 ```
@@ -23,17 +15,21 @@ import { sendMail } from 'mailchannels'
 
 ### Usage
 
-> [!IMPORTANT]  
-> You need to [configure your domain](https://gist.github.com/boywithkeyboard/d4e3cbc0f319d90dcde5d94b2d83d57b) first to use this module.
+Add the below TXT records for SPF and Domain Lock to work correctly. Replace `WORKER_ID` with your unique subdomain for workers, e.g. `example.workers.dev`, and/or the sub(domain) you're using for the worker, e.g. `example.com`.
+
+| Name | Content |
+| --- | --- |
+| @ | v=spf1 a mx include:relay.mailchannels.net ~all |
+| _mailchannels | v=mc1 cfid=`WORKER_ID` |
 
 ```ts
-const response = await sendMail({
-  subject: '...',
-  message: '...',
+const { success } = await sendMail({
+  subject: 'An example',
+  message: 'This is an example email sent from Cloudflare Workers.',
   from: {
-    name: '...',
-    email: '...'
+    name: 'You',
+    email: 'you@your.domain'
   },
-  to: 'john.doe@example.com'
+  to: 'somebody@some.domain'
 })
 ```
