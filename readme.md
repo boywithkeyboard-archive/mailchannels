@@ -15,7 +15,10 @@ import { sendMail } from 'mailchannels'
 
 ### Usage
 
-Add the below TXT records for SPF and Domain Lock to work correctly. Replace `WORKER_ID` with your unique subdomain for workers, e.g. `username.workers.dev`, or the sub(domain) you're using for the worker, e.g. `example.com`.
+Add the below TXT records for SPF and Domain Lock to work correctly. Replace `WORKER_ID` with either
+
+- your unique subdomain for workers, e.g. `username.workers.dev`
+- or the (sub)domain you're using for the worker, e.g. `example.com`.
 
 | Name | Content |
 | --- | --- |
