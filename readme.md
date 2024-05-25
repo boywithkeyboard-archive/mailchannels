@@ -1,5 +1,7 @@
 ## mailchannels(.js)
 
+***[mailchannels announced](https://support.mailchannels.com/hc/en-us/articles/26814255454093-End-of-Life-Notice-Cloudflare-Workers) that their free tier and the API to send email from Cloudflare Workers will reach its end of life on June 30th.***
+
 > [!NOTE]  
 > This SDK is meant for Cloudflare Workers' integration of mailchannels, which doesn't require authentication.
 
